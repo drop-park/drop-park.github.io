@@ -13,26 +13,14 @@ affiliations: Anonymous Institute
 # data: https://huggingface.co/docs/datasets
 ---
 
-![Overview ><](static/image/overview.svg)
+![Overview ><](/static/image/overview.svg)
 
 <!-- Using HTML to center the abstract -->
 <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
         <h2>Abstract</h2>
         <div class="content has-text-justified">
-The "computable" numbers may be described briefly as the real
-numbers whose expressions as a decimal are calculable by finite means.
-Although the subject of this paper is ostensibly the computable numbers.
-it is almost equally easy to define and investigate computable functions
-of an integral variable or a real or computable variable, computable
-predicates, and so forth. The fundamental problems involved are,
-however, the same in each case, and I have chosen the computable numbers
-for explicit treatment as involving the least cumbrous technique. I hope
-shortly to give an account of the relations of the computable numbers,
-functions, and so forth to one another. This will include a development
-of the theory of functions of a real variable expressed in terms of computable
-numbers. According to my definition, a number is computable
-if its decimal can be written down by a machine...
+In this paper, we present \workname, high-<b>D</b>ensity <b>R</b>elocation-free and schedule-C<b>o</b>nstrained <b>P</b>arking for automated valet parking systems (AVPS). \workname~addresses the challenges in high-density parking when precluding disruptive relocations and scheduled order violations. Each challenge is handled by providing relocation-free parking & exit sequences and identifying schedule-constrained parking allocations, respectively. To generate all valid parking & exit sequences, the relocation-free constraints are formulated as explicit logical conditions. For efficient computations, several techniques were designed such as infeasible layout skipping and adjacency-based recursive search with pruning to accelerate the derivation of these logical expressions. We demonstrate the effectiveness of our framework through computer simulations, showcasing its potential to significantly improve area utilization while respecting relocation-free and operation-order constraints.
         </div>
     </div>
 </div>
