@@ -2,7 +2,7 @@
 layout: project_page
 permalink: /
 
-title: DROP: 
+title: DROP
 authors:
     Anonymous Writers
 # affiliations:
