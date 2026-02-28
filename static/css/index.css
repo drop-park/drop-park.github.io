@@ -155,3 +155,31 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+th {
+    white-space: nowrap;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* This enables the horizontal scroll */
+  display: block;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+img[alt$=">"] {
+  float: right;
+}
+
+img[alt$="<"] {
+  float: left;
+}
+
+img[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+}
