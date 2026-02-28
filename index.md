@@ -2,7 +2,7 @@
 layout: project_page
 permalink: /
 
-title: "DROP: High-Density Relocation-free Order-constrained Parking for Vehicle Fleet"
+title: "DRoP: High-Density Relocation-free Order-constrained Parking for Vehicle Fleet"
 authors:
     Anonymous Authors
 affiliations: Anonymous Institute
@@ -20,7 +20,7 @@ affiliations: Anonymous Institute
     <div class="column is-four-fifths">
         <h2>Abstract</h2>
         <div class="content has-text-justified">
-In this paper, we present \workname, high-<b>D</b>ensity <b>R</b>elocation-free and schedule-C<b>o</b>nstrained <b>P</b>arking for automated valet parking systems (AVPS). \workname~addresses the challenges in high-density parking when precluding disruptive relocations and scheduled order violations. Each challenge is handled by providing relocation-free parking & exit sequences and identifying schedule-constrained parking allocations, respectively. To generate all valid parking & exit sequences, the relocation-free constraints are formulated as explicit logical conditions. For efficient computations, several techniques were designed such as infeasible layout skipping and adjacency-based recursive search with pruning to accelerate the derivation of these logical expressions. We demonstrate the effectiveness of our framework through computer simulations, showcasing its potential to significantly improve area utilization while respecting relocation-free and operation-order constraints.
+In this paper, we present DRoP, high-<b>D</b>ensity <b>R</b>elocation-free and schedule-C<b>o</b>nstrained <b>P</b>arking for automated valet parking systems (AVPS). DRoP addresses the challenges in high-density parking when precluding disruptive relocations and scheduled order violations. Each challenge is handled by providing relocation-free parking & exit sequences and identifying schedule-constrained parking allocations, respectively. To generate all valid parking & exit sequences, the relocation-free constraints are formulated as explicit logical conditions. For efficient computations, several techniques were designed such as infeasible layout skipping and adjacency-based recursive search with pruning to accelerate the derivation of these logical expressions. We demonstrate the effectiveness of our framework through computer simulations, showcasing its potential to significantly improve area utilization while respecting relocation-free and operation-order constraints.
         </div>
     </div>
 </div>
@@ -55,6 +55,29 @@ Turing's main objective in this paper was to investigate the notion of computabi
 | Numbers with finite decimal representations | Numbers with infinite, non-repeating decimal representations |
 
 He used the concept of a universal Turing machine to prove that the set of computable functions is recursively enumerable, meaning it can be listed by an algorithm. -->
+
+# Instance 1: $\texttt{15x12}$
+
+![Unique Layouts for Instances 1 ><](/static/image/unique_topologies_15x12.png)
+![Adjacency Graphs for Instances 1 ><](/static/image/adjacency_graphs_all_topologies_15x12.png)
+No layouts are skipped.
+
+## All valid sequences
+
+|                                     | Layout 1 | Layout 2 | Layout 3 |
+| :---------------------------------: | :------: | :------: | :------- |
+| $\mid\textit{exitSeqs}_\omega \mid$ |    **56**    |    **34**    | 1        |
+
+## Parking allocations
+
+| Operation order $\pi$   | Layout 1 | Layout 2 | Layout 3 |
+| :-----------------------: | :--------: | :--------: | :--------: |
+| $[0,1,2,3,4]$ | 8        | 2        | 0        |
+| $[1,2,3,4,0]$ | 24        | 2        | 0        |
+| $[2,3,4,0,1]$ | 48        | 4        | 0        |
+| $[3,4,0,1,2]$ | 40        | 12        | 0        |
+| $[4,0,1,2,3]$ | 16        | 26       | 0        |
+
 
 
 # Instance 2: $\texttt{20x16}$
