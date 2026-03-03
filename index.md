@@ -2,7 +2,7 @@
 layout: project_page
 permalink: /
 
-title: "DRoP: High-Density Relocation-free Order-constrained Parking for Vehicle Fleet"
+title: "High-Density Automated Valet Parking with Relocation-Free Sequential Operations"
 authors:
     Anonymous Authors
 affiliations: Anonymous Institute
@@ -11,21 +11,33 @@ affiliations: Anonymous Institute
 # video: https://www.youtube.com/results?search_query=turing+machine
 # code: https://github.com/topics/turing-machines
 # data: https://huggingface.co/docs/datasets
----
 
-![Overview ><](/static/image/overview.svg)
+---
 
 <!-- Using HTML to center the abstract -->
 <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
         <h2>Abstract</h2>
         <div class="content has-text-justified">
-In this paper, we present DRoP, high-<b>D</b>ensity <b>R</b>elocation-free and schedule-C<b>o</b>nstrained <b>P</b>arking for automated valet parking systems (AVPS). DRoP addresses the challenges in high-density parking when precluding disruptive relocations and scheduled order violations. Each challenge is handled by providing relocation-free parking & exit sequences and identifying schedule-constrained parking allocations, respectively. To generate all valid parking & exit sequences, the relocation-free constraints are formulated as explicit logical conditions. For efficient computations, several techniques were designed such as infeasible layout skipping and adjacency-based recursive search with pruning to accelerate the derivation of these logical expressions. We demonstrate the effectiveness of our framework through computer simulations, showcasing its potential to significantly improve area utilization while respecting relocation-free and operation-order constraints.
+In this paper, we present DROP, high-<b>D</b>ensity <b>R</b>elocation-free sequential <b>OP</b>erations in automated valet parking. DROP addresses the challenges in high-density parking & vehicle retrieval without relocations. Each challenge is handled by jointly providing area-efficient layouts and relocation-free parking & exit sequences, considering accessibility with relocation-free sequential operations. To generate such sequences, relocation-free constraints are formulated as explicit logical conditions expressed in boolean variables. Recursive search strategies are employed to derive the logical conditions and enumerate relocation-free sequences under sequential constraints. We demonstrate the effectiveness of our framework through extensive simulations, showing its potential to significantly improve area utilization with relocation-free constraints. We also examine its viability on an application problem with prescribed operational order.
         </div>
     </div>
 </div>
 
 ---
+
+# Concept of DROP
+
+![DROP Concept ><](/static/image/drop-concept.svg)
+<p style="font-size:120%; font-style:italic; text-align:center">
+DROP solves trade-off between area utilization and relocation-free exits.
+</p>
+# Overview of DROP
+
+![Overview ><](/static/image/overview.svg)
+
+<!-- TODO: add contents -->
+
 
 
 <!-- ## Background
@@ -56,19 +68,48 @@ Turing's main objective in this paper was to investigate the notion of computabi
 
 He used the concept of a universal Turing machine to prove that the set of computable functions is recursively enumerable, meaning it can be listed by an algorithm. -->
 
-# Instance 1: $\texttt{15x12}$
+# Experiment Results
+
+The experiments are conducted on three instances with different dimensions: $\texttt{15x12}$, $\texttt{20x16}$, and $\texttt{20x20}$.
+
+Following intermediate results are reported for each instance including
+- Generated unique layouts
+- Adjacency graphs for all unique layouts
+- The number of relocation-free exit sequences for all unique layouts
+- The parking-exit sequence pairs with a prescribed operational order $\pi$ for all unique layouts
+
+Note: The number of relocation-free parking is same as the number of relocation-free exit sequences.
+
+<details>
+    <summary>
+    <h2 style="display: inline-block; margin: 0;">Instance 1: 15x12</h2>
+  </summary>
+  <div markdown="1">
+<!-- ## Instance 1: $\texttt{15x12}$ -->
+
+### Generated Unique Layouts
 
 ![Unique Layouts for Instances 1 ><](/static/image/unique_topologies_15x12.png)
-![Adjacency Graphs for Instances 1 ><](/static/image/adjacency_graphs_all_topologies_15x12.png)
-No layouts are skipped.
 
-## All valid sequences
+<b>3</b> unique layouts are generated to pack <b>5</b> vehicles in the parking lot.
+
+### Adjacency Graphs
+
+![Adjacency Graphs for Instances 1 ><](/static/image/adjacency_graphs_all_topologies_15x12.png)
+
+The adjacency graphs for all 3 unique layouts are built while no layouts are skipped in postprocessing.
+
+### The Number of Relocation-Free Exit Sequences
 
 |                                     | Layout 1 | Layout 2 | Layout 3 |
-| :---------------------------------: | :------: | :------: | :------- |
-| $\mid\textit{exitSeqs}_\omega \mid$ |    **56**    |    **34**    | 1        |
+| :---------------------------------: | :------: | :------: | :-------: |
+| $\vert\textit{exitSeqs}_\omega \vert$ |    **56**    |    **34**    | 1        |
 
-## Parking allocations
+Each cell represents the number of relocation-free exit sequences for the corresponding layout.
+
+In above table, the values of layouts are highlighted as <b>bold</b> if the layout has valid parking-exit sequence pairs with $\pi$.
+
+### The Parking-Exit Sequence Pairs with $\pi$
 
 | Operation order $\pi$   | Layout 1 | Layout 2 | Layout 3 |
 | :-----------------------: | :--------: | :--------: | :--------: |
@@ -78,38 +119,47 @@ No layouts are skipped.
 | $[3,4,0,1,2]$ | 40        | 12        | 0        |
 | $[4,0,1,2,3]$ | 16        | 26       | 0        |
 
+Each cell represents the number of parking-exit sequence pairs for the corresponding layout and operation order $\pi$.
 
+<b>Layout 1 and 2</b> have valid pairs of parking-exit sequences for any $\pi$ while Layout 3 has no such pairs at all.
 
-# Instance 2: $\texttt{20x16}$
+</div>
+</details>
+
+<details>
+    <summary>
+    <h2 style="display: inline-block; margin: 0;">Instance 2: 20x16</h2>
+  </summary>
+  <div markdown="1">
+<!-- ## Instance 2: $\texttt{20x16}$ -->
+
+### Generated Unique Layouts
 
 ![Unique Layouts for Instances 2 ><](/static/image/unique_topologies_20x16.png)
-![Adjacency Graphs for Instances 2 ><](/static/image/adjacency_graphs_all_topologies_20x16.png)
-No layouts are skipped.
 
-## All valid sequences
+<b>22</b> unique layouts are generated to pack <b>10</b> vehicles in the parking lot.
+
+### Adjacency Graphs
+
+![Adjacency Graphs for Instances 2 ><](/static/image/adjacency_graphs_all_topologies_20x16.png)
+
+The adjacency graphs for all 22 unique layouts are built while no layouts are skipped in postprocessing.
+
+### The Number of Relocation-Free Exit Sequences
 
 <div class="table-wrapper" markdown="block">
 
-
-<!-- | Layout 1  | Layout 2  | Layout 3  | Layout 4  | Layout 5  |
-| --------- | --------- | --------- | --------- | --------- |
-| 3816      | 5760      | 348       | 9382      | 172       |
-| Layout 6  | Layout 7  | Layout 8  | Layout 9  | Layout 10 |
-| 5475      | 6480      | 159465    | 4320      | 18120     |
-| Layout 11 | Layout 12 | Layout 13 | Layout 14 | Layout 15 |
-| 2070      | 3418      | 90        | 4500      | 896       |
-| Layout 16 | Layout 17 | Layout 18 | Layout 19 | Layout 20 |
-| 120       | 6249      | 4214      | 1352      | 6594      |
-| Layout 21 | Layout 22 |           |           |           |
-| 85        | 896       |           |           |           | -->
-
 |   | Layout 1 | Layout 2 | Layout 3 | Layout 4 | Layout 5 | Layout 6 | Layout 7 | Layout 8 | Layout 9 | Layout 10 | Layout 11 | Layout 12 | Layout 13 | Layout 14 | Layout 15 | Layout 16 | Layout 17 | Layout 18 | Layout 19 | Layout 20 | Layout 21 | Layout 22 |
 | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
-| $\mid\textit{exitSeqs}_\omega \mid$ | 3816     | 5760     | 348      | **9382**     | 172      | 5475     | 6480     | **159465**   | 4320     | 18120     | 2070      | 3418      | 90        | **4500**      | 896       | 120       | 6249      | 4214      | 1352      | **6594**      | 85        | 896       |
+| $\vert\textit{exitSeqs}_\omega \vert$ | 3,816     | 5,760     | 348      | **9,382**     | 172      | 5,475     | 6,480     | **159,465**   | 4,320     | 18,120     | 2,070      | 3,418      | 90        | **4,500**      | 896       | 120       | 6,249      | 4,214      | 1,352      | **6,594**      | 85        | 896       |
 
 </div>
 
-## Parking allocations
+Each cell represents the number of relocation-free exit sequences for the corresponding layout.
+
+In above table, the values of layouts are highlighted as <b>bold</b> if the layout has valid parking-exit sequence pairs with $\pi$.
+
+### The Parking-Exit Sequence Pairs with $\pi$
 
 | Operation order $\pi$   | Layout 4 | Layout 8 | Layout 14 | Layout 20 | 
 | :-----------------------: | :--------: | :--------: | :--------: | :--------: | 
@@ -118,31 +168,54 @@ No layouts are skipped.
 | $[2,3,4,5,6,7,8,9,0,1]$ | 4        | 0        | 0         | 0         |  
 | $[3,4,5,6,7,8,9,0,1,2]$ | 0        | 0        | 0         | 0         |  
 | $[4,5,6,7,8,9,0,1,2,3]$ | 0        | 0        | 0         | 0         |    
-| $[5,6,7,8,9,0,1,2,3,4]$ | 0        | 14400    | 0         | 0         |   
-| $[6,7,8,9,0,1,2,3,4,5]$ | 0        | 14400    | 0         | 0         |  
-| $[7,8,9,0,1,2,3,4,5,6]$ | 92       | 7392     | 0         | 0         |  
-| $[8,9,0,1,2,3,4,5,6,7]$ | 112      | 2496     | 32        | 32        | 
+| $[5,6,7,8,9,0,1,2,3,4]$ | 0        | 14,400    | 0         | 0         |   
+| $[6,7,8,9,0,1,2,3,4,5]$ | 0        | 14,400    | 0         | 0         |  
+| $[7,8,9,0,1,2,3,4,5,6]$ | 92       | 7,392     | 0         | 0         |  
+| $[8,9,0,1,2,3,4,5,6,7]$ | 112      | 2,496     | 32        | 32        | 
 | $[9,0,1,2,3,4,5,6,7,8]$ | 82       | 534      | 0         | 44        | 
 
+Each cell represents the number of parking-exit sequence pairs for the corresponding layout and operation order $\pi$.
 
-# Instance 3: $\texttt{20x20}$
+<b>Layout 4, Layout 8, Layout 14, and Layout 20</b> have valid pairs of parking-exit sequences for some $\pi$ while the other layouts have no such pairs at all.
+
+</div>
+</details>
+
+
+<details>
+    <summary>
+    <h2 style="display: inline-block; margin: 0;">Instance 3: 20x20</h2>
+  </summary>
+  <div markdown="1">
+<!-- ## Instance 3: $\texttt{20x20}$ -->
+
+### Generated Unique Layouts
 
 ![Unique Layouts for Instances 3 ><](/static/image/unique_topologies_20x20.png)
+
+<b>30</b> unique layouts are generated to pack <b>12</b> vehicles in the parking lot.
+
+### Adjacency Graphs
+
 ![Adjacency Graphs for Instances 3 ><](/static/image/adjacency_graphs_all_topologies_20x20.png)
 
-30 layouts are analyzed while the 22 layouts are skipped.
+The adjacency graphs for all 30 unique layouts are built while 22 layouts are skipped in postprocessing.
 
-## All valid sequences
+### The Number of Relocation-Free Exit Sequences
 
 <div class="table-wrapper" markdown="block">
 
 |                                     | **Layout 1** | **Layout 2** | **Layout 3** | **Layout 4** | **Layout 5** | Layout 6 | **Layout 7** | **Layout 8** | **Layout 9** | **Layout 10** | **Layout 12** | Layout 13 | **Layout 14** | **Layout 15** | Layout 16 | **Layout 18** | **Layout 20** | **Layout 21** | **Layout 22** | **Layout 23** | Layout 24 | **Layout 26** | Layout 28 | **Layout 29** | **Layout 30** | **Layout 31** | Layout 32 | Layout 37 | Layout 39 | Layout 40 |
 | :---------------------------------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: |
-| $\mid\textit{exitSeqs}_\omega \mid$ | **1061400**  |  **952826**  | **1181608**  | **1811594**  |  **972222**  |  473292  |  **573888**  |  **869010**  |  **201876**  |  **198552**   |  **2250000**  |  794664   | **11214231**  |  **2316420**  |  2234592  |  **1668018**  |  **1117338**  |  **149328**   |  **1152484**  |  **610536**   |   99888   |  **645738**   |   21968   | **390100**    | **733830** | **49128** | 610914 | 6696 | 4676 | 7476 | 
+| $\vert\textit{exitSeqs}_\omega \vert$ | **1,061,400**  |  **952,826**  | **1,181,608**  | **1,811,594**  |  **972,222**  |  473,292  |  **573,888**  |  **869,010**  |  **201,876**  |  **198,552**   |  **2,250,000**  |  794,664   | **11,214,231**  |  **2,316,420**  |  2,234,592  |  **1,668,018**  |  **1,117,338**  |  **149,328**   |  **1,152,484**  |  **610,536**   |   99,888   |  **645,738**   |   21,968   | **390,100**    | **733,830** | **49,128** | 610,914 | 6,696 | 4,676 | 7,476 | 
 
 </div>
 
-## Parking allocations
+Each cell represents the number of relocation-free exit sequences for the corresponding layout.
+
+In above table, the values of layouts are highlighted as <b>bold</b> if the layout has valid parking-exit sequence pairs with $\pi$.
+
+### The Parking-Exit Sequence Pairs with $\pi$
 
 <div class="table-wrapper" markdown="block">
 
@@ -154,11 +227,18 @@ No layouts are skipped.
 | $[3,4,5,6,7,8,9,10,11,0,1,2]$ | 0        | 0        | 0        | 132      | 132       | 0        | 108      | 0         | 108       | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0 |
 | $[4,5,6,7,8,9,10,11,0,1,2,3]$ | 0        | 0        | 0        | 0        | 0        | 384        | 384      | 0         | 48        | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0 |
 | $[5,6,7,8,9,10,11,0,1,2,3,4]$ | 0        | 0        | 0        | 0        | 0        | 0        | 0        | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0         | 0 |
-| $[6,7,8,9,10,11,0,1,2,3,4,5]$ | 0        | 0        | 16       | 2880     | 0        | 0        | 0        | 0         | 0         | 2880      | 518400    | 8640         | 0         | 0         | 48        | 0         | 0         | 120         | 0         | 0         | 0 |
-| $[7,8,9,10,11,0,1,2,3,4,5,6]$ | 0        | 2016     | 32       | 1120      | 0        | 0        | 0        | 0         | 0         | 5760      | 604800    | 16320        | 0         | 2880      | 24        | 1008         | 336         | 0         | 0         | 0         | 0 |
-| $[8,9,10,11,0,1,2,3,4,5,6,7]$ | 1536      | 672      | 512      | 8960     | 0        | 48       | 4352      | 48         | 0         | 4512      | 370944    | 12672       | 4608         | 288        | 96         | 2784         | 768         | 0         | 0         | 0         | 0 |
-| $[9,10,11,0,1,2,3,4,5,6,7,8]$ | 2232      | 2672      | 3628     | 49400    | 0        | 48       | 5832      | 36         | 0         | 2016      | 156384    | 6840      | 4896         | 360       | 120       | 7932      | 2064         | 0         | 144         | 5184         | 72    |
-| $[10,11,0,1,2,3,4,5,6,7,8,9]$ | 1200      | 1156       | 560      | 14400     | 0        | 176      | 4864      | 56         | 0         | 336      | 48672     | 2784       | 1984         | 160        | 40         | 2004      | 264         | 0         | 132        | 2304         | 8 |
-| $[11,0,1,2,3,4,5,6,7,8,9,10]$ | 480        | 392       | 64        | 2816      | 0        | 10       | 510      | 4         | 0         | 0       | 10096     | 792        | 252         | 42        | 12         | 280      | 42         | 0         | 16         | 722         |   4      |
+| $[6,7,8,9,10,11,0,1,2,3,4,5]$ | 0        | 0        | 16       | 2,880     | 0        | 0        | 0        | 0         | 0         | 2,880      | 518,400    | 8,640         | 0         | 0         | 48        | 0         | 0         | 120         | 0         | 0         | 0 |
+| $[7,8,9,10,11,0,1,2,3,4,5,6]$ | 0        | 2,016     | 32       | 1,120      | 0        | 0        | 0        | 0         | 0         | 5,760      | 604,800    | 16,320        | 0         | 2,880      | 24        | 1,008         | 336         | 0         | 0         | 0         | 0 |
+| $[8,9,10,11,0,1,2,3,4,5,6,7]$ | 1,536      | 672      | 512      | 8,960     | 0        | 48       | 4,352      | 48         | 0         | 4,512      | 370,944    | 12,672       | 4,608         | 288        | 96         | 2,784         | 768         | 0         | 0         | 0         | 0 |
+| $[9,10,11,0,1,2,3,4,5,6,7,8]$ | 2,232      | 2,672      | 3,628     | 49,400    | 0        | 48       | 5,832      | 36         | 0         | 2,016      | 156,384    | 6,840      | 4,896         | 360       | 120       | 7,932      | 2,064         | 0         | 144         | 5,184         | 72    |
+| $[10,11,0,1,2,3,4,5,6,7,8,9]$ | 1,200      | 1,156       | 560      | 14,400     | 0        | 176      | 4,864      | 56         | 0         | 336      | 48,672     | 2,784       | 1,984         | 160        | 40         | 2,004      | 264         | 0         | 132        | 2,304         | 8 |
+| $[11,0,1,2,3,4,5,6,7,8,9,10]$ | 480        | 392       | 64        | 2,816      | 0        | 10       | 510      | 4         | 0         | 0       | 10,096     | 792        | 252         | 42        | 12         | 280      | 42         | 0         | 16         | 722         |   4      |
 
 </div>
+
+Each cell represents the number of parking-exit sequence pairs for the corresponding layout and operation order $\pi$.
+
+<b>21</b> layouts have valid pairs of parking-exit sequences for some $\pi$ while the other layouts have no such pairs at all.
+
+</div>
+</details>

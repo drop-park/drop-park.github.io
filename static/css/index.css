@@ -183,3 +183,30 @@ img[alt$="><"] {
   margin: auto;
   float: none!important;
 }
+
+/* This targets any header tag inside a summary */
+summary h1, summary h2, summary h3 {
+  display: inline;      /* Keeps it on the same line as the triangle */
+  vertical-align: middle; 
+  margin-left: 20px;    /* Adds a little breathing room from the triangle */
+}
+
+/* Optional: Ensures the summary acts as a single clickable line */
+summary {
+  cursor: pointer;
+  display: list-item;   /* Standard for the disclosure triangle */
+}
+
+summary::marker {
+  font-size: 1.5rem; /* Adjust this until it matches your H1 height */
+  color: #333;       /* Optional: Match your header color */
+}
+
+details {
+  margin-bottom: 2rem; /* Increases space between each "Suboptimal" section */
+}
+
+details > div {
+  padding-top: 1.5rem;
+  padding-left: 30px; /* Indent the content to align with the header */
+}
