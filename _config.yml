@@ -28,3 +28,10 @@ markdown: kramdown
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+analytics:
+  provider: "google-gtag"
+
+  google:
+    tracking_id: "G-BEGKCKLNZE" # replace with your Google Analytics tracking ID
+    anonymize_ip: true # set to true to anonymize IP addresses
