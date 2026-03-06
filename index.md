@@ -26,13 +26,14 @@ In this paper, we present DROP, high-<b>D</b>ensity <b>R</b>elocation-free seque
 
 ---
 
-# Concept of DROP
+# 💡 Concept of DROP
 
 ![DROP Concept ><](/static/image/drop-concept.svg)
 <p style="font-size:120%; font-style:italic; text-align:center">
 "DROP solves trade-off between area utilization and relocation-free exits."
 </p>
-# Overview of DROP
+
+# 🔎 Overview of DROP
 
 ![Overview ><](/static/image/overview.svg)
 
@@ -68,7 +69,7 @@ Turing's main objective in this paper was to investigate the notion of computabi
 
 He used the concept of a universal Turing machine to prove that the set of computable functions is recursively enumerable, meaning it can be listed by an algorithm. -->
 
-# Experiment Results
+# 📊 Experiment Results
 
 - Target Instances: $\texttt{15x12}$, $\texttt{20x16}$, and $\texttt{20x20}$
 - Key Results per Instance:
