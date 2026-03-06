@@ -30,7 +30,7 @@ In this paper, we present DROP, high-<b>D</b>ensity <b>R</b>elocation-free seque
 
 ![DROP Concept ><](/static/image/drop-concept.svg)
 <p style="font-size:120%; font-style:italic; text-align:center">
-DROP solves trade-off between area utilization and relocation-free exits.
+"DROP solves trade-off between area utilization and relocation-free exits."
 </p>
 # Overview of DROP
 
@@ -70,15 +70,16 @@ He used the concept of a universal Turing machine to prove that the set of compu
 
 # Experiment Results
 
-The experiments are conducted on three instances with different dimensions: $\texttt{15x12}$, $\texttt{20x16}$, and $\texttt{20x20}$.
+- Target Instances: $\texttt{15x12}$, $\texttt{20x16}$, and $\texttt{20x20}$
+- Key Results per Instance:
+  * Generated unique layouts
+  * Adjacency graphs for all unique layouts
+  * Number of relocation-free exit sequences
+  * Parking-exit sequence pairs (under prescribed operation order $\pi$)
+  * Animated example of parkiing and exit sequence pairs (under $\pi$)
 
-Following intermediate results are reported for each instance including
-- Generated unique layouts
-- Adjacency graphs for all unique layouts
-- The number of relocation-free exit sequences for all unique layouts
-- The parking-exit sequence pairs with a prescribed operational order $\pi$ for all unique layouts
 
-Note: The number of relocation-free parking is same as the number of relocation-free exit sequences.
+Note: The count of relocation-free parking matches the number of relocation-free exit sequences.
 
 <details>
     <summary>
@@ -91,13 +92,18 @@ Note: The number of relocation-free parking is same as the number of relocation-
 
 ![Unique Layouts for Instances 1 ><](/static/image/unique_topologies_15x12.png)
 
-<b>3</b> unique layouts are generated to pack <b>5</b> vehicles in the parking lot.
+Note:
+- A gray large rectangular box (and its surroundings): Parking lot (boundary)
+- A skyblue-colored rectangles: Parking stalls
+- Label on each stall: Stall ID (0-4)
+
+<b>3</b> unique layouts with packing capacity of <b>5</b> vehicles.
 
 ### Adjacency Graphs
 
 ![Adjacency Graphs for Instances 1 ><](/static/image/adjacency_graphs_all_topologies_15x12.png)
 
-The adjacency graphs for all 3 unique layouts are built while no layouts are skipped in postprocessing.
+The adjacency graphs for all 3 unique layouts. No layouts skipped in postprocessing.
 
 ### The Number of Relocation-Free Exit Sequences
 
@@ -105,9 +111,7 @@ The adjacency graphs for all 3 unique layouts are built while no layouts are ski
 | :---------------------------------: | :------: | :------: | :-------: |
 | $\vert\textit{exitSeqs}_\omega \vert$ |    **56**    |    **34**    | 1        |
 
-Each cell represents the number of relocation-free exit sequences for the corresponding layout.
-
-In above table, the values of layouts are highlighted as <b>bold</b> if the layout has valid parking-exit sequence pairs with $\pi$.
+Note: <b>Bold</b> values indicate layouts with valid parking-exit sequence pairs under $\pi$.
 
 ### The Parking-Exit Sequence Pairs with $\pi$
 
@@ -119,9 +123,15 @@ In above table, the values of layouts are highlighted as <b>bold</b> if the layo
 | $[3,4,0,1,2]$ | 40        | 12        | 0        |
 | $[4,0,1,2,3]$ | 16        | 26       | 0        |
 
-Each cell represents the number of parking-exit sequence pairs for the corresponding layout and operation order $\pi$.
+Note: Each cell is the count of parking-exit sequence pairs per layout and operation order $\pi$.
 
-<b>Layout 1 and 2</b> have valid pairs of parking-exit sequences for any $\pi$ while Layout 3 has no such pairs at all.
+- <b>Layouts 1, 2</b>: Valid pairs for all operational orders ($\pi$)
+- Layout 3: No valid pairs identified
+
+### Animated Example of Parking-Exit Sequence Pairs with $\pi$
+
+![Parking-Exit Sequence Pairs for Instance 1 ><](/static/image/pair-example_15x12.gif)
+
 
 </div>
 </details>
@@ -137,13 +147,18 @@ Each cell represents the number of parking-exit sequence pairs for the correspon
 
 ![Unique Layouts for Instances 2 ><](/static/image/unique_topologies_20x16.png)
 
-<b>22</b> unique layouts are generated to pack <b>10</b> vehicles in the parking lot.
+Note:
+- A gray large rectangular box (and its surroundings): Parking lot (boundary)
+- A skyblue-colored rectangles: Parking stalls
+- Label on each stall: Stall ID (0-4)
+
+<b>22</b> unique layouts with packing capacity of <b>10</b> vehicles.
 
 ### Adjacency Graphs
 
 ![Adjacency Graphs for Instances 2 ><](/static/image/adjacency_graphs_all_topologies_20x16.png)
 
-The adjacency graphs for all 22 unique layouts are built while no layouts are skipped in postprocessing.
+The adjacency graphs for all 22 unique layouts. No layouts skipped in postprocessing.
 
 ### The Number of Relocation-Free Exit Sequences
 
@@ -155,9 +170,7 @@ The adjacency graphs for all 22 unique layouts are built while no layouts are sk
 
 </div>
 
-Each cell represents the number of relocation-free exit sequences for the corresponding layout.
-
-In above table, the values of layouts are highlighted as <b>bold</b> if the layout has valid parking-exit sequence pairs with $\pi$.
+Note: <b>Bold</b> values indicate layouts with valid parking-exit sequence pairs under $\pi$.
 
 ### The Parking-Exit Sequence Pairs with $\pi$
 
@@ -174,9 +187,14 @@ In above table, the values of layouts are highlighted as <b>bold</b> if the layo
 | $[8,9,0,1,2,3,4,5,6,7]$ | 112      | 2,496     | 32        | 32        | 
 | $[9,0,1,2,3,4,5,6,7,8]$ | 82       | 534      | 0         | 44        | 
 
-Each cell represents the number of parking-exit sequence pairs for the corresponding layout and operation order $\pi$.
+Note: Each cell is the count of parking-exit sequence pairs per layout and operation order $\pi$.
 
-<b>Layout 4, Layout 8, Layout 14, and Layout 20</b> have valid pairs of parking-exit sequences for some $\pi$ while the other layouts have no such pairs at all.
+- <b>Layouts 4, 8, 14, 20</b>: Valid pairs for some operational orders ($\pi$)
+- The other layouts: No valid pairs identified
+
+### Animated Example of Parking-Exit Sequence Pairs with $\pi$
+
+![Parking-Exit Sequence Pairs for Instance 2 ><](/static/image/pair-example_20x16.gif)
 
 </div>
 </details>
@@ -193,13 +211,18 @@ Each cell represents the number of parking-exit sequence pairs for the correspon
 
 ![Unique Layouts for Instances 3 ><](/static/image/unique_topologies_20x20.png)
 
-<b>30</b> unique layouts are generated to pack <b>12</b> vehicles in the parking lot.
+Note:
+- A gray large rectangular box (and its surroundings): Parking lot (boundary)
+- A skyblue-colored rectangles: Parking stalls
+- Label on each stall: Stall ID (0-4)
+
+<b>52</b> unique layouts with packing capacity of <b>12</b> vehicles.
 
 ### Adjacency Graphs
 
 ![Adjacency Graphs for Instances 3 ><](/static/image/adjacency_graphs_all_topologies_20x20.png)
 
-The adjacency graphs for all 30 unique layouts are built while 22 layouts are skipped in postprocessing.
+The adjacency graphs for 30 unique layouts. 22 layouts skipped in postprocessing.
 
 ### The Number of Relocation-Free Exit Sequences
 
@@ -211,9 +234,7 @@ The adjacency graphs for all 30 unique layouts are built while 22 layouts are sk
 
 </div>
 
-Each cell represents the number of relocation-free exit sequences for the corresponding layout.
-
-In above table, the values of layouts are highlighted as <b>bold</b> if the layout has valid parking-exit sequence pairs with $\pi$.
+Note: <b>Bold</b> values indicate layouts with valid parking-exit sequence pairs under $\pi$.
 
 ### The Parking-Exit Sequence Pairs with $\pi$
 
@@ -236,9 +257,18 @@ In above table, the values of layouts are highlighted as <b>bold</b> if the layo
 
 </div>
 
-Each cell represents the number of parking-exit sequence pairs for the corresponding layout and operation order $\pi$.
+Note: Each cell is the count of parking-exit sequence pairs per layout and operation order $\pi$.
 
-<b>21</b> layouts have valid pairs of parking-exit sequences for some $\pi$ while the other layouts have no such pairs at all.
+- The layouts reported in the table: Valid pairs for some operational orders ($\pi$)
+- The other layouts (not reported in the table): No valid pairs identified
+
+<!-- - <b>Layouts 1, 3, 4, 5, 7, 8, 9, 10, 12, 14, 15, 18, 20, 21, 22, 23, 26, 29, 30, 31</b>: Valid pairs for some operational orders ($\pi$)
+- The other layouts: No valid pairs identified -->
+
+### Animated Example of Parking-Exit Sequence Pairs with $\pi$
+
+![Parking-Exit Sequence Pairs for Instance 3 ><](/static/image/pair-example_20x20.gif)
+
 
 </div>
 </details>
