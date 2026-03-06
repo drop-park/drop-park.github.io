@@ -30,7 +30,7 @@ markdown: kramdown
 #   - vendor/ruby/
 
 analytics:
-  provider: "google-gtag"
+  provider: "google"
 
   google:
     tracking_id: "G-BEGKCKLNZE" # replace with your Google Analytics tracking ID
